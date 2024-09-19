@@ -1,27 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* 
+font-family: "Playfair Display", system-ui;
+font-family: "Poppins", system-ui;
+font-family: "Open Sans", system-ui;
+*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #fafafa;
   --foreground: #171717;
+  --card: #ffffff;
+  --card-border: #ededee;
+  --text-color: #171717;
+  --text-active: #020770;
+  --primary-bg: #d2d1e6;
+  --second-bg: #020770;
+  --third-bg: #7f222b;
+  --text-primary-1: #7ddad1;
+  --text-white: #ffffff;
+  --text-primary: #020770;
+  --text-second: #e3e760;
+  --button-bg: #020770;
+  --button-hover-bg: #015974;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --card: #18181b;
+    --card-border: #222123;
+    --text-color: #ffffff;
+    --text-active: #ffd239;
+    --primary-bg: #020770;
+    --second-bg: #d2d1e6;
+    --text-primary: #e3e760;
+    --text-second: #020770;
+    --second-bg: #7f222b;
+    --third-bg: #d2d1e6;
   }
-}
+} */
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", system-ui;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.registration_section {
+  width: 450px;
+  margin: auto auto;
+}
+.registration_section .block_title,
+.registration_section .block_sub_title {
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", system-ui;
+}
+h1 {
+  font-size: 2rem;
+}
+h1 {
+  font-size: 1.8rem;
+}
+h1 {
+  font-size: 1.6rem;
+}
+h1 {
+  font-size: 1.4rem;
+}
+h1 {
+  font-size: 1.2rem;
+}
+h1 {
+  font-size: 1rem;
+}
+.btn.btn-default {
+  background: var(--button-bg);
+  color: var(--text-second);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.btn.btn-default:hover {
+  background: var(--button-hover-bg);
+  color: #ededee;
+}
+
+@media only screen and (max-width: 575px) {
+  body {
+    background: var(--second-bg) !important;
+  }
+  .registration_section {
+    width: 350px;
+    margin: auto auto;
+  }
+  .block_title,
+  .block_sub_title {
+    color: var(--text-second) !important;
+  }
+  .card .card-body {
+    background: var(--primary-bg);
+    color: var(--text-primary);
+  }
+}
+@media only screen and (max-width: 768px) {
+}
+@media only screen and (max-width: 992px) {
+}
+@media only screen and (max-width: 1200px) {
+}
+@media only screen and (max-width: 1400px) {
 }
