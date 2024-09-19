@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  password  String
+  name      String?
+  user_type String? @default("subsciber")
+  posts     Post[]
+  bills     Bills[]
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String?
+  published Boolean @default(false)
+  author    User    @relation(fields: [authorId], references: [id])
+  authorId  Int
+}
+
+model Items {
+  id        Int     @id @default(autoincrement())
+  name      String
+  logo      String?
+  is_active Boolean @default(false)
+}
+
+model Bills {
+  id            Int       @id @default(autoincrement())
+  track_code    Int       @default(1000)
+  bill_status   String    @default("pending")
+  total_article Int
+  total_amount  Int       @default(0)
+  delivery_date DateTime?
+  receive_date  DateTime  @default(now())
+
+  author   User @relation(fields: [authorId], references: [id])
+  authorId Int
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
